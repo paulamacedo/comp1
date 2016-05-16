@@ -23,9 +23,7 @@ int main(){
 		"5. calcular o valor do polinomio para um dado valor da variavel;\n"	
 		"6. encerrar o programa\n");
 	
-	t_Polinomio polinomio;
-	polinomio = lePolinomio();
-/*	
+	
 	//Serão lidas as opções digitadas pelo usuário até que o mesmo digite 6, que é a condição de parada do loop e do programa.
 	while (opcao != 6){
 		scanf("%d", &opcao);
@@ -52,6 +50,6 @@ int main(){
 				printf("Opção inválida!");
 		}
 	}
-*/
+
 	return 0; 
 }
