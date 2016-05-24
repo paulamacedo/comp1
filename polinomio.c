@@ -1,5 +1,5 @@
 /*
-Autores : Paula Macedo da Cruz e Rodrigo Avelar Felicidade 
+Autores :  
 Data: 23/05/2016
 Definição: Implementação das funções que tratam do conjunto de operações com polinomios.
 */
