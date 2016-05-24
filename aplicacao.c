@@ -46,15 +46,14 @@ int main(){
 			case 2:
 				puts("Você selecionou a opção calcular a derivada de um polinomio. Entre com o polinomio");
 				polinomio1 = lePolinomio();
-				resultado1 = derivaPolinomio (polinomio1);
-				imprimePolinomio(resultado1);
+				derivaPolinomio (polinomio1);
+			
 				printf("\n");
 				break;
 			case 3:
 				puts("Você selecionou a opção calcular a integral de um polinomio. Entre com o polinomio");
 				polinomio1 = lePolinomio();
-				resultado1 = integraPolinomio(polinomio1);
-				imprimePolinomio(resultado1);
+				integraPolinomio(polinomio1);
 				printf("\n");
 				break;
 			case 4:
