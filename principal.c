@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 50
 #include "func.c"
+#define MAX 50
+
  
 int main(){
 
@@ -61,8 +62,12 @@ int main(){
 	while(opcao!= 0){		
 			puts("Entre com o código do produto e a quantidade ");
 			scanf("%d %d", &cod, &quantidade);
-			posicao = busca_produto(produtos, cod);
-			calcula_preços(saida, produtos, posicao, quantidade);	
+			posicao = busca_produto(produtos, tamanho, cod);
+			if(posicao < 0){
+				puts("Código não encontrado!");
+				continue;			
+			}
+			int valor = calcula_preços(produtos, posicao, quantidade);	
 			gera_csv(saida, produtos)//olhar essa função depois
 			printf("Deseja continuar com a busca?\n"
 				" 1 . Para continuar\n"
@@ -70,7 +75,7 @@ int main(){
 			scanf("%d", &opcao);
 		}
 		
-	free(produtos);			
+				
 
 	return 0;
 
