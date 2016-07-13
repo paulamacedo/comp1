@@ -70,7 +70,7 @@ int main(){
 			scanf("%d", &opcao);
 		}
 		
-				
+	free(produtos);			
 
 	return 0;
 
