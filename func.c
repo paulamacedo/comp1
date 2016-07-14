@@ -3,9 +3,21 @@
 int acha_quant_linhas(FILE *entrada){
 
 	int contador = 0 ;
+	int caractere, existe_linhas = 0;
+  
+  	while((caractere = fgetc(entrada)) != EOF){
+    	existe_linhas = 1; // há conteúdo no arquivo
+    
+    	if(caractere == '\n'){ //se houver quebra de linha, incrementar o contador
+      		contador++;             
+    	} 
+  }
 
-
-	return contador;
+  //Incrementar novamente o contador, pois na última linha não há quebra de linha e o contador não irá ser incrementado
+  	if(existe_linhas){
+  		contador++;
+  	}
+	return contador;//retorna o número de linhas do arquivo
 }
 
 PRODUTO armazena_dados(FILE *entrada, FILE *entrada2, PRODUTO produtos, int tamanho){
