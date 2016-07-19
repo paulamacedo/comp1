@@ -58,7 +58,7 @@ int main(){
 		puts("Erro! Arquivo de saida não pode ser gerado.");
 		return 1;	
 	}
-
+	fprintf(saida, "CODIGO, DESCRICAO, VALOR UNITARIO, QUANTIDADE, TOTAL \n");
 	//Interação com o usuário 3 - MENU
 	puts("Vamos começar a nossa busca?"); 
 	while(opcao!= 0){		
@@ -69,15 +69,19 @@ int main(){
 				puts("Código não encontrado!");
 				continue;			
 			}
-			
-			float valor = calcula_precos(produtos, posicao, quantidade);	
-			
+			float valor;
+			valor = calcula_precos(produtos, posicao, quantidade);	
+			printf("%f\n", valor);
+			fprintf(saida, "%d, %s, %.2f, %d, %.2f \n", produtos[posicao].codigo, produtos[posicao].descricao, produtos[posicao].preco_unitario, quantidade, valor);
 			printf("Deseja continuar com a busca?\n"
 				" 1 . Para continuar\n"
-				" 0 . Para encerrar busca e gerar csv \n");	
+				" 0 . Para encerrar busca e gerar csv\n ");	
 			scanf("%d", &opcao);
-		}
-		
+			if(opcao == 0){
+				puts("Seu arquivo de saída já está salvo no seu diretório.");
+				puts("Fim do programa!");
+			}
+	}	
 				
 
 	return 0;
