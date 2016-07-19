@@ -14,12 +14,12 @@ int main(){
 	PRODUTO *produtos;
 	// 
 	//variáveis de controle do menu
-	int cod, posicao, quantidade, opcao=0; 
+	int cod, posicao, quantidade, opcao =0; 
 	//
  
 	//Interação com o usuário 1 - Solicitação de arquivo de entrada 1
 	puts("Por favor, entre com o nome do arquivo 1 (codigo e descrição)");	
-	scanf("%s", &nome_entrada);
+	scanf("%s", nome_entrada);
 	//Abertura de arquivo para leitura e teste
 	entrada = fopen(nome_entrada, "r");
 	if(!entrada){
@@ -29,6 +29,7 @@ int main(){
 	//
 	//Achar quantidade de linhas do arquivo
 	int tamanho_arq = acha_quant_linhas(entrada);
+
 	//
 	//Alocação dinâmica de memória para um vetor do tipo PRODUTO e teste  
 	produtos = (PRODUTO*)malloc(tamanho_arq * sizeof(PRODUTO));
@@ -39,7 +40,7 @@ int main(){
 	//
 	//Interação com o usuário 2 - Solicitação de arquivo de entrada 2
 	puts("Por favor, entre com o nome do arquivo 2 (codigo e preço unitário)");	
-	scanf("%s", &nome_entrada2);
+	scanf("%s", nome_entrada2);
 	//
 	//Abertura de arquivo para leitura e teste
 	entrada = fopen(nome_entrada2, "r"); 
@@ -48,7 +49,7 @@ int main(){
 		return 1;	
 	}
 	//Armazena os dados provenientes de dois arquivos de entrada numa estrutura do tipo PRODUTO
-	armazena_dados(entrada, entrada2, produtos, tamanho);
+	armazena_dados(entrada, entrada2, produtos, tamanho_arq);
 	//
 	//Gera um arquivo para escrita
 	saida = fopen(nome_saida, "w");
@@ -67,8 +68,8 @@ int main(){
 				puts("Código não encontrado!");
 				continue;			
 			}
-			int valor = calcula_preços(produtos, posicao, quantidade);	
-			gera_csv(saida, produtos)//olhar essa função depois
+			float valor = calcula_precos(produtos, posicao, quantidade);	
+			//gera_csv(saida, produtos)//olhar essa função depois
 			printf("Deseja continuar com a busca?\n"
 				" 1 . Para continuar\n"
 				" 0 . Para encerrar busca e gerar csv ");	
